@@ -1,0 +1,125 @@
+.goodsDetail{
+    width:100%;
+    min-height: 100%;
+    position: absolute;
+    left:0;
+    top:0;
+    z-index: 100;
+    background: #fff;
+    overflow-y:auto;
+}
+.goodsDetail::-webkit-scrollbar{
+    display: none;
+    width:0px;
+}
+
+.goodsDetail .left {
+    position: fixed;
+    top:20px;
+    left: 15px;
+}
+.goodsDetail .collectImg{
+    position: fixed;
+    top:20px;
+    right: 15px;
+}
+.goodsDetail img.goodsPho{
+    border:none;
+    outline: none;
+    width:90%;
+    height:500px;
+    margin-left:5%;
+    margin-top:10px;
+}
+
+.goodsDetail_con{
+   width:100%;
+   padding: 0 15px;
+   font-size: 18px;
+   font-weight: bold;
+   color: #000;
+   height:auto;
+   margin-bottom:30px;
+}
+.goodsDetail_con .price{
+    color: red;
+    font-size:25px;
+}
+.gAttr li{
+    width:25%;
+    height: 30px;
+    margin-left: 5%;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    display: inline-block;
+    text-align: center;
+}
+
+.goodsDetail .footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height:50px;
+    background: #f3f6f9;
+}
+.goodsDetail .footer .goHome,.goodsDetail .footer .goCart{
+    width:25%;
+    height: 50px;
+    padding-top: 10px;
+    vertical-align:middle;
+    text-align: center;
+    border-right: 1px solid #ccc;
+    display:inline-block;
+
+}
+
+
+.goodsDetail .footer .addCart{
+    display: inline-block;
+    width:50%;
+    height:50px;
+    text-align: center;
+    font-size: 18px;
+    padding-top: 10px;
+    background:#52A2EE;
+    color: #fff;
+}
+
+.goodsComment{
+    width:100%;
+    margin-bottom:80px;  
+}
+.goodsComment h2{
+    font-weight: bold;
+    color: #3E90F7;
+    margin-bottom:5px;
+    margin-left:3%;
+}
+.goodsComment p{
+    width:100%;
+    padding:5px 3%;
+    background:#f3f6f9;
+    height: auto;
+    margin-bottom: 10px;
+    color:#000;
+   
+}
+.goodsComment p img{
+    width:35px;
+    height: 35px;
+    margin-right:10px;
+    border-radius: 50%;
+
+}
+.goodsComment p .name{
+     font-size: 17px;
+     font-weight: bold; 
+}
+.goodsComment p .date{
+     font-size: 12px; 
+     color:#ccc;
+}
+.goodsComment p .content{
+     font-size: 16px; 
+}

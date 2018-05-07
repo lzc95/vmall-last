@@ -1,0 +1,55 @@
+
+.order{
+    width:100%;
+    min-height: 100%;
+    height:100%;
+    position: absolute;
+    left:0;
+    top:0;
+    z-index: 100;
+    background: #fff;
+    overflow-y:auto;
+}
+.order .orderNum{
+    color:#3E90F7;
+}
+.order .gCon{
+    padding:5px 5%;
+    font-size:14px;
+    margin-top:15px;
+    background: #f3f6f9;
+}
+
+.order .gCon .goods{
+    margin-top:10px;
+}
+.order .gPic{
+    width:20%;
+    height: 100px;
+    float: left;
+}
+.order .gName{
+    width:70%;
+    padding:0 5px;
+    float: left;
+}
+.order .num_price{
+    position: relative;
+    top:10px;
+    left: 5px;
+    color:#3E90F7;
+    font-weight: bold;
+}
+.order .payPrice{
+    height: 35px;
+    line-height: 35px;
+    color:red;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.order .am-tabs-default-bar-content{
+    position: fixed;
+    top:45px;
+    background:#fff;
+}

@@ -229,9 +229,9 @@ class Cart extends React.Component{
                                  <img src={this.state.check.indexOf(item.cartId)>-1?circle_ok:circle} className='circle'
                                  onClick={this.check.bind(this,item)}/>
                                  <img src={URL+item.gPic} className='gPic' 
-                                  onClick={this.goDetail.bind(this,item.gId)}/>
+                                  onClick={this.goDetail.bind(this,item.gId)} />
                                  <p className="cartAttr" >
-                                 <span>{item.gName}</span><br/>
+                                 <span>{item.gName.substr(0,16)}</span><br/>
                                  <span style={{color:'#52A2EE'}}>规格:{item.checkAttr}</span><br/>
                                  <span style={{color:'red',fontSize:17}}>¥{toFixed_2(item.gPrice)}</span><br/>
                                  <span className="num">

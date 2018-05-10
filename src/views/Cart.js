@@ -231,7 +231,7 @@ class Cart extends React.Component{
                                  <img src={URL+item.gPic} className='gPic' 
                                   onClick={this.goDetail.bind(this,item.gId)} />
                                  <p className="cartAttr" >
-                                 <span>{item.gName.substr(0,16)}</span><br/>
+                                 <span>{item.gName.substr(0,12)}</span><br/>
                                  <span style={{color:'#52A2EE'}}>规格:{item.checkAttr}</span><br/>
                                  <span style={{color:'red',fontSize:17}}>¥{toFixed_2(item.gPrice)}</span><br/>
                                  <span className="num">

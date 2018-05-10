@@ -84,7 +84,7 @@ class List extends React.Component{
                                     <li key={item.collectId} >
                                         <span onClick={this.goDetail.bind(this,item.gId)}>
                                           <img src={URL+item.gPic}/>
-                                          <span className='goodsCon'>{item.gName}</span>
+                                          <span className='goodsCon'>{item.gName.substr(0,24)}</span>
                                         </span>
                                         <img src="/src/common/img/del.svg" style={{ width:35,height:41 }}  
                                         onClick={this.cancelCollect.bind(this,item)}/>

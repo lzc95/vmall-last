@@ -26,7 +26,7 @@ class searchCon extends React.Component{
                     onClick={this.back.bind(this)}
                     ><img src='/src/common/img/left_s.svg'/></span>
                   <div className='search'>
-                      <input placeholder="搜索你要的商品" ref='key'/>
+                      <input placeholder="搜索你要的商品" ref='key' autofocus="autofocus"/>
                       <button className="search_btn" onClick={this.search.bind(this)}>搜索</button>
                   </div>
              </div>

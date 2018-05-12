@@ -7,6 +7,7 @@
     z-index: 100;
     background: #F3F6F9;
     overflow-y: auto;
+    font-size: 15px;
 }
 
 .Evaluate::-webkit-scrollbar{
@@ -19,11 +20,16 @@
     width:90px;
     height: 100px;
     margin-left: 5%;
+    margin-right:20px;
+    float: left;
 }
-
+.Evaluate ul li{
+    margin-bottom: 20px;
+}
 .Evaluate  textarea{
     width:90%;
     height: 120px;
+    margin-top:5px;
     margin-left: 5%;
     resize: none;
     padding:5px;

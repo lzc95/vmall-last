@@ -19,6 +19,10 @@
     background: #f3f6f9;
 }
 
+.ordergoods{
+   margin-bottom: 60px;
+}
+
 .ordergoods li{
     width:96%;
     height:140px;

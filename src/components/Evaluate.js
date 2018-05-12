@@ -45,28 +45,33 @@ class Evaluate extends React.Component{
     this.setState({
        evaluation:arr 
     })
-    console.log(arr)
+
+     console.log(arr)
       
    }
 
    //发表评价
-   publishEvaluation(e){
+   publishEvaluation(){
         var query=parseQuery(window.location.href);
         var order_number=query.orderNumber;
 
         var _this=this;
-       axios.post(REQUEST_URL+'/publishEvaluation',{
-          evaluation:this.state.evaluation,
-          order_number:order_number
-       }).then(function(res){
-            Toast.info(res.data.msg,1, null, false);
-            if(res.data.code==1){
-                _this.props.history.goBack()
-            }
-       }).catch(function(err){
-           console.log(err)
-       })
-       
+        if(this.state.evaluation.length!=this.state.orderDetail.length){
+            Toast.fail('评价内容不能为空！',1, null, true);
+        }
+        else{
+             axios.post(REQUEST_URL+'/publishEvaluation',{
+		          evaluation:this.state.evaluation,
+		          order_number:order_number
+		     }).then(function(res){
+		          Toast.info(res.data.msg,1, null, true);
+		          if(res.data.code==1){
+		                _this.props.history.goBack()
+		           }
+		    }).catch(function(err){
+		           console.log(err)
+		     })
+        }  
    }
     
     componentWillMount(){

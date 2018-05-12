@@ -7,7 +7,7 @@ import LoginForm from '../components/Login';
 import axios from 'axios';
 import {REQUEST_URL} from '../common/lib';
 import '../common/css/user.css';
-
+const URL=REQUEST_URL+'/images/user_';
 
 const alert = Modal.alert;
 
@@ -18,6 +18,7 @@ class User extends React.Component{
             nickName:'',
             isLogin:false,
             uId:'',
+            user_pic:''
         }
         this.logout=this.logout.bind(this)
     }
@@ -54,8 +55,17 @@ class User extends React.Component{
               if(res.data.uId!=-1 && !(typeof res.data.uId=='undefined')){
                  _this.setState({
                     isLogin:true,
-                    nickName:res.data.nickName
-                 })   
+                    nickName:res.data.nickName,
+                 }) 
+
+                 axios.get(REQUEST_URL+'/getUserPic',{})
+                 .then(function(res){
+                    _this.setState({
+                       user_pic:res.data.user_pic
+                    }) 
+                 }).catch(function(err){
+                    console.log(err)
+                 })
               }  
               console.log(res.data.uId)        
           })
@@ -73,7 +83,7 @@ class User extends React.Component{
               if(res.data.uId!=-1 && !(typeof res.data.uId=='undefined')){
                  _this.setState({
                     isLogin:true,
-                    nickName:res.data.nickName
+                    nickName:res.data.nickName,
                  })
                  console.log(res.data.uId)
               }          
@@ -90,7 +100,7 @@ class User extends React.Component{
            user=(
                 <ul>
                     <li className='user_pho'>
-                       <img src="/src/common/img/user.svg"/>
+                       <img src={URL+this.state.user_pic+'.jpg'}/>
                        <span>{this.state.nickName}</span>
                     </li>
                     <WhiteSpace />

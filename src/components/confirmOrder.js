@@ -1,4 +1,6 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
+import {Toast} from 'antd-mobile';
 import Header from '../components/Header'
 import Keyboard from '../components/keyboard'
 
@@ -78,8 +80,22 @@ class Order extends React.Component{
 
     //提交订单
     submitOrder(){
-        this.setState({
-            keyboard:true
+        var _this=this;
+        axios.get(REQUEST_URL+'/payPassStatus',{})
+        .then(function(res){
+            if(res.data.code=='yes'){
+               _this.setState({
+                   keyboard:true
+               })
+            }
+            else{
+                Toast.fail('您还未设置支付密码，请先去设置支付密码！！！', 2, null,true);
+                setTimeout(function(){
+                    _this.props.history.push('/payPass')  
+                },2000)
+            }
+        }).catch(function(err){
+            console.log(err)
         })
         
     }
@@ -108,6 +124,14 @@ class Order extends React.Component{
         //请求默认地址
         axios.get(REQUEST_URL+'/getDefaultAddress')
         .then(function(res){
+              var arr=res.data.defaultAddress;
+              if(arr.length==0){
+                 Toast.fail('您还未添加收货地址，请先添加收货地址！', 2, null,true);
+                 setTimeout(function(){
+                    _this.props.history.push('/addAddress')  
+                 },2000)
+              }
+
               _this.setState({
                   address:res.data.defaultAddress
               })
@@ -226,4 +250,4 @@ class Order extends React.Component{
          )
      }
 }
-export default Order;
+export default withRouter(Order);

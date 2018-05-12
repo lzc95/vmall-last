@@ -9,6 +9,7 @@ import axios from 'axios';
 import {REQUEST_URL,toFixed_2,regDate} from '../common/lib';
 
 const URL=REQUEST_URL+'/upload/';
+const userURL=REQUEST_URL+'/images/user_'
 const nocollect='/src/common/img/noCollect.svg';
 const collected='/src/common/img/collected.svg';
 
@@ -269,7 +270,7 @@ class goodsDetail extends React.Component{
                           this.state.evaluation.length>0?(this.state.evaluation.map((item)=>{
                              return(
                                <p>
-                                  <img src="/src/common/img/user.svg"/>
+                                  <img src={userURL+item.user_pic+'.jpg'}/>
                                   <span className='name'>{item.nickName}</span><br/>
                                   <span className='date'>{regDate(item.comment_date)}</span><br/>
                                   <span className='content'>{item.content}</span>

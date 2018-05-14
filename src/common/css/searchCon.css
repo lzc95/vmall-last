@@ -45,3 +45,31 @@
     outline:none;
     border:none;
 }
+.historySearch{
+    margin-top:60px;
+}
+
+ .historySearch ul li{
+    width:90%; 
+    height:40px;
+    line-height: 40px;
+    font-size:16px;
+    color: #000;
+    border-bottom:1px solid #ccc;
+    margin-left:5%;
+}
+
+.historySearch button{
+    width:80%;
+    margin-top: 40px;
+    margin-left: 10%;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 15px;
+    border:1px solid #ccc;
+    font-size: 15px;
+}
+.historySearch button img{
+    width:25px;
+    height: 30px;
+}

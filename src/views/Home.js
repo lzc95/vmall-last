@@ -16,7 +16,8 @@ class Home extends React.Component{
             data: ['1', '2', '3'],
             imgHeight: 176,
             slideIndex: 0,
-            list:[]
+            list:[],
+            bestSellingList:[]
         }
     }
 
@@ -24,6 +25,7 @@ class Home extends React.Component{
         let url='/goodsDetail?gId='
         this.props.history.push(url+arg)
     }
+    
 
     componentDidMount() {
         // simulate img loading
@@ -33,6 +35,8 @@ class Home extends React.Component{
           });
         }, 100)
         var _this=this;
+
+        //获取最新上架14件商品
         axios.get(REQUEST_URL+'/newGoods')
         .then(function(res){
              _this.setState({
@@ -41,6 +45,18 @@ class Home extends React.Component{
         }).catch(function(err){
             console.log(err)
         })
+
+        //获取畅销产品10件
+        axios.get(REQUEST_URL+'/bestSelling')
+        .then(function(res){
+             _this.setState({
+                 bestSellingList:res.data.goodsList
+             })
+        }).catch(function(err){
+            console.log(err)
+        })
+
+      
     }
     
     render(){
@@ -57,7 +73,7 @@ class Home extends React.Component{
                     {this.state.data.map(val => (
                        <a
                        key={val}
-                       href="http://www.alipay.com"
+                       href="#"
                        style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
                        >
                        <img
@@ -95,8 +111,27 @@ class Home extends React.Component{
                          }
                      </ul>
                 </div>
+
+                <p style={{clear:'left'}}></p>
+                <div className='new'>
+                    <p className='title' style={{marginTop:10,marginBottom:20}}><img src="/src/common/img/hot.svg"/>热销排行</p>
+                     <ul>
+                         {
+                            this.state.bestSellingList.map((item)=>{
+                                return(
+                                    <li key={item.gId} onClick={this.goDetail.bind(this,item.gId)}>
+                                        <img src={URL+item.gPic}/>
+                                        <p>{item.gName}</p>
+                                        <p className="price">¥{item.gPrice}</p>
+                                   </li>
+                                )
+                            })
+                         }
+                     </ul>
+                </div>
                 <p style={{clear:'left'}}></p>
                 <p style={{color:'#3E90F7',textAlign:'center',marginTop:30,marginBottom:80}}>***^_^人家也是有底线的^_^***</p>
+                
               </div>  
             </div>
         )
